@@ -1,14 +1,14 @@
 var express = require('express');
+var app = express();
 
-
-var http = require('http');
-var server = http.Server(app);
-var io = require('socket.io')(server);
+// var http = require('http');
+// var server = http.Server(app);
+var io = require('socket.io')(app);
 var path = require('path');
 var bodyParser = require ('body-parser');
 
 var PORT = process.env.PORT || 3001;
-var app = express();
+
 app.use(bodyParser.json());
 
 // app.get('/', function(req, res){
@@ -49,6 +49,6 @@ io.on('connection', function(socket){
   });
 });
 
-server.listen(PORT, function(){
+app.listen(PORT, function(){
   console.log(`Server listening on ${PORT}`);
 });
