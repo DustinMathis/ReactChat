@@ -46,6 +46,6 @@ io.on('connection', function(socket){
   });
 });
 
-app.listen(PORT, function(){
+http.listen(PORT, function(){
   console.log(`Server listening on ${PORT}`);
 });
