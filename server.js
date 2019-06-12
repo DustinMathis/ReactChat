@@ -1,9 +1,7 @@
 var express = require('express');
 var app = express();
-
-// var http = require('http');
-// var server = http.Server(app);
-var io = require('socket.io')(app);
+var server = http.Server(app);
+var io = require('socket.io')(server);
 var path = require('path');
 var bodyParser = require ('body-parser');
 
@@ -55,6 +53,6 @@ io.on('connection', function(socket){
   });
 });
 
-app.listen(PORT, function(){
+server.listen(PORT, function(){
   console.log(`Server listening on ${PORT}`);
 });
