@@ -1,4 +1,5 @@
 var express = require('express');
+var http = require('http');
 var app = express();
 var server = http.Server(app);
 var io = require('socket.io')(server);
@@ -21,13 +22,7 @@ app.use(function(req, res, next) {
     next();
 });
 
-// Heroku won't actually allow us to use WebSockets
-// so we have to setup polling instead.
-// https://devcenter.heroku.com/articles/using-socket-io-with-node-js-on-heroku
-io.configure(function () { 
-  io.set("transports", ["xhr-polling"]); 
-  io.set("polling duration", 10); 
-});
+
 
 
 
