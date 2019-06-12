@@ -1,6 +1,5 @@
 import React from 'react';
 import io from 'socket.io-client';
-import PORT from '../../server'
 
 export const CTX= React.createContext();
 
@@ -50,7 +49,7 @@ export default function Store(props){
     const [allChats, dispatch] = React.useReducer(reducer, initState);
     if (!socket){
 
-        socket = io(PORT);
+        socket = io(process.env.PORT);
         socket.on('chat message', function(msg){
             dispatch({type: 'RECEIVE_MESSAGE' , payload : msg});
         })
