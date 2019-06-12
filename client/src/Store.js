@@ -4,13 +4,13 @@ import io from 'socket.io-client';
 export const CTX= React.createContext();
 
 const initState = {
-    general: [
+    General: [
         {from: 'aaron', msg:'hello'}, 
         {from:'brad', msg:'Hello there'}, 
         {from:'nick', msg:'Whats up'},
         
     ],
-    topic2: [
+    Topic2: [
         {from: 'Harry', msg:'hello'}, 
         {from:'Mary', msg:'Hello there'}, 
         {from:'Gary', msg:'Whats up'},
