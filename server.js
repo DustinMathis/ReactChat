@@ -10,28 +10,28 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+// });
 
 
 
 
 
 
-//Serve static assets if in production
-if(process.env.NODE_ENV === 'production'){
-    //SET static folder
-    app.use(express.static('client/build'));
+// //Serve static assets if in production
+// if(process.env.NODE_ENV === 'production'){
+//     //SET static folder
+//     app.use(app.static('client/build'));
 
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+//     app.get('*', (req, res) => {
+//         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
 
 
-    });
-}
+//     });
+// }
 
 io.on('connection', function(socket){
   console.log('a user connected');
