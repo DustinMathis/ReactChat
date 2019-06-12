@@ -1,6 +1,9 @@
 var express = require('express');
-var http = require('http').createServer(app);
-var io = require('socket.io')(http);
+
+
+var http = require('http');
+var server = http.Server(app);
+var io = require('socket.io')(server);
 var path = require('path');
 var bodyParser = require ('body-parser');
 
@@ -46,6 +49,6 @@ io.on('connection', function(socket){
   });
 });
 
-http.listen(PORT, function(){
+server.listen(PORT, function(){
   console.log(`Server listening on ${PORT}`);
 });
