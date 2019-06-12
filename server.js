@@ -6,9 +6,13 @@ var bodyParser = require ('body-parser');
 
 var PORT = process.env.PORT || 3001;
 var app = express();
-app.get('/', function(req, res){
-  res.sendFile(__dirname + '/index.html');
-});
+app.use(bodyParser.json());
+
+// app.get('/', function(req, res){
+//   res.sendFile(__dirname + '/index.html');
+// });
+
+
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -42,6 +46,6 @@ io.on('connection', function(socket){
   });
 });
 
-http.listen(PORT, function(){
+app.listen(PORT, function(){
   console.log(`Server listening on ${PORT}`);
 });
