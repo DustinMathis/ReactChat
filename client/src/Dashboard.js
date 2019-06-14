@@ -1,4 +1,6 @@
 import React from 'react';
+
+import { ReactComponent as Logo } from './svgchat.svg';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -6,6 +8,9 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Chip from '@material-ui/core/Chip';
 import Button from '@material-ui/core/Button';
+import Avatar from '@material-ui/core/Avatar';
+import FaceIcon from '@material-ui/icons/Face';
+
 
 import ListItemText from '@material-ui/core/ListItemText';
 import TextField from '@material-ui/core/TextField';
@@ -14,7 +19,7 @@ import {CTX} from './Store'
 
 const useStyles = makeStyles(theme => ({
   root: {
-      margin: '50px',
+    margin: '50px',
     padding: theme.spacing(3, 2),
   },
   flex: {
@@ -23,16 +28,22 @@ const useStyles = makeStyles(theme => ({
   },
   topicsWindow: {
     width:'30%',
-    height:'300px',
-    borderRight: '1px solid grey'
+    height:'340px',
+    borderRight: '1px solid grey',
+    background: '#CBD1D2'
   },
   chatWindow: {
     width:'70%',
     height:'300px',
     padding: '20px',
+    background: '#E1F0F4' 
 },
 chatBox: {
-    width:'85%'
+    width:'85%',
+    background: '#B4C1C4',
+    
+
+
 },
 button: {
     width:'15%'
@@ -57,9 +68,7 @@ export default function Dashboard(){
     return(
         <div>
              <Paper className={classes.root}>
-                    <Typography variant="h4" component="h4">
-                   Random Chat
-                    </Typography>
+                    <Logo />
                     <Typography variant="h5" component="h5">
                     {activeTopic}
                     </Typography>
@@ -82,8 +91,17 @@ export default function Dashboard(){
                         {
                                 allChats[activeTopic].map((chat, i) =>(
                                     <div key={i} className={classes.flex}>
-                                    <Chip label={chat.from} className={classes.chip} />
-                                   <Typography variant='body1' gutterBottom>{chat.msg}</Typography>
+                                    <Chip 
+                                    avatar={
+                                        <Avatar>
+                                          <FaceIcon />
+                                        </Avatar>
+                                      }
+                                    label={'' + chat.from} 
+                                    className={classes.chip} />
+                                   <Typography variant='body1' 
+                                   gutterBottom>{chat.msg}
+                                   </Typography>
                                     </div>
 
                                 ))

@@ -5,15 +5,13 @@ export const CTX= React.createContext();
 
 const initState = {
     General: [
-        {from: 'aaron', msg:'hello'}, 
-        {from:'brad', msg:'Hello there'}, 
-        {from:'nick', msg:'Whats up'},
+        {from: 'Random User', msg:'Try it out!'}, 
+        
         
     ],
     Topic2: [
-        {from: 'Harry', msg:'hello'}, 
-        {from:'Mary', msg:'Hello there'}, 
-        {from:'Gary', msg:'Whats up'},
+        {from: 'Random User', msg:'Try topic 2!'}, 
+        
         
     ]
 
