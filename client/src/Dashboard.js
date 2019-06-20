@@ -30,17 +30,28 @@ const useStyles = makeStyles(theme => ({
     width:'30%',
     height:'340px',
     borderRight: '1px solid grey',
-    background: '#CBD1D2'
+    background: '#CBD1D2',
+    fontFamily: "Comic Sans MS",
+    
+    borderBottomLeftRadius: 0,
+		borderBottomRightRadius: 15,
+		borderTopLeftRadius: 5,
+		borderTopRightRadius: 15
   },
   chatWindow: {
     width:'70%',
     height:'300px',
     padding: '20px',
-    background: '#E1F0F4' 
+    background: '#E1F0F4' ,
+    borderRadius:'15px'
 },
 chatBox: {
     width:'85%',
     background: '#B4C1C4',
+    borderBottomLeftRadius: 5,
+		borderBottomRightRadius: 15,
+		borderTopLeftRadius: 5,
+		borderTopRightRadius: 15
     
 
 
@@ -111,7 +122,7 @@ export default function Dashboard(){
                     <div className={classes.flex}>
                     <TextField
                         
-                        label="Send a Chat"
+                        label="  Send a Chat"
                         className={classes.chatBox}
                         value={textValue}
                        onChange={e => changeTextValue(e.target.value)}
@@ -129,7 +140,7 @@ export default function Dashboard(){
                         
                         }}
                     >
-                            Send
+                        Send
                         </Button>
                     </div>
                 
